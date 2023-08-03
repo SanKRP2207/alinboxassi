@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>User List</title>
 </head>
 
 <body>
-    <h1>User List</h1>
+    <!-- <h1>User List</h1> -->
     <div id="userList"></div>
 
     <script>
@@ -28,15 +29,30 @@
                     userListDiv.innerHTML = '<p>No users found.</p>';
                 } else {
                     const userListHTML = `
+
+                    ${users.map(user => `
+
+                    <div id="showimg">
+                            ${user.profile_picture ? `<img id="image" src="${user.profile_picture}" width="100" height="100" alt="Profile Picture">` : ''}
+                        
+                        </div>
+                        `).join('')}
                 <ul>
                     ${users.map(user => `
-                        <li>
+
+                        
+
+                        <table>
+                        <ul id="showdata">
+                            <li>
+
                             <strong>Name:</strong> ${user.name}<br>
                             <strong>Email:</strong> ${user.email}<br>
-                            
-                            ${user.profile_picture ? `<img src="${user.profile_picture}" width="100" height="100" alt="Profile Picture">` : ''}
                             <hr>
-                        </li>
+
+                            </li>
+                        </ul>
+                        </table>
                     `).join('')}
                 </ul>
             `;

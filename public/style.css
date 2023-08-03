@@ -1,5 +1,65 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
+
+    /* background: linear-gradient(90deg, #e66465, #9198e5);     */
 }
 
+#Rform {
+    display: grid;
+    justify-content: center;
+    background: linear-gradient(-23deg, #e66465, #9198e5 , #f4cc82a8, #e76c6c, #ffc0cbe6);
+}
+
+#Rform input {
+    height: 6vh;
+    width: 35vw;
+    margin: 80px 0px 0px 0px;
+}
+
+#input1 {
+    margin: 0px;
+
+}
+
+#input2 {
+    margin: 0px;
+
+}
+
+#input3 {
+    margin: 0px;
+
+}
+
+#input3 {
+    margin: 0px;
+}
+
+#button0 {
+    height: 6vh;
+    margin-bottom: 198px;
+}
+
+/* ------------------------------------------- */
+
+
+
+#userList{
+    background:linear-gradient(#e76c6c6c,#e76c6c6c,#93e6ec6c) ;
+}
+
+#image{
+    border-radius: 50%;
+    background-color: #9198e5;
+}
+
+#showimg{
+    display: flex;
+    justify-content: center;
+}
+
+#showdata{
+    display: flex;
+    justify-content: center;
+}

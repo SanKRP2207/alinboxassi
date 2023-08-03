@@ -39,7 +39,7 @@ app.get('/home', (req, resp) => {
 });
 
 app.post('/contact', upload.single('profilePicture'), (req, resp) => {
-    console.log(req.body);
+    // console.log(req.body);
 
     if (req.file) {
         const filePath = req.file.path;
@@ -57,11 +57,13 @@ app.post('/contact', upload.single('profilePicture'), (req, resp) => {
     mysqlConn.query('INsert INTO user SET ?', data, (error, result, fields) => {
         if (error) {
             console.error('Error occurred:', error);
-            resp.status(500).send('An error occurred while processing the request.');
+            resp.status(500).json({ success: false });
         } else {
-            resp.send(result);
+            // Successful registration, send JSON response
+            resp.json({ success: true });
         }
     });
+    
 
 });
 
@@ -81,7 +83,6 @@ app.get('/users', (req, resp) => {
             // Set the response header to indicate JSON data
             resp.setHeader('Content-Type', 'application/json');
             resp.json(results);
-            console.log(results);
         }
     });
 });
