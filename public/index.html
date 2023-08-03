@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" class="userName">
+    <input type="email" class="userEmail">
+    <input type="password" class="userPassword">
+    <input type="file" accept="image/*" class="userPicture" required>
+    <button>Register</button>
+
+    <script>
+
+        let Name = document.querySelector(".userName");
+        let Email = document.querySelector(".userEmail");
+        let Password = document.querySelector(".userPassword");
+        let Picture = document.querySelector(".userPicture");
+        let button = document.querySelector("button");
+
+        button.addEventListener("click", () => {
+
+            const formData = new FormData();
+            formData.append("Uname", Name.value);
+            formData.append("Uemail", Email.value);
+            formData.append("Upassword", Password.value);
+            formData.append("profilePicture", Picture.files[0]);
+
+            fetch("/contact", {
+                method: "POST",
+                body: formData
+            })
+
+        })
+
+        // fetch('/users')
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         console.log(data);
+        //         // Use the data received from the server as needed
+        //     })
+        //     .catch(error => {
+        //         console.error('Error occurred:', error);
+        //     });
+
+    </script>
+
+
+
+
+</body>
+
+</html>
